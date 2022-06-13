@@ -43,6 +43,14 @@ const Hook = () => {
                   className="close"
                   onClick={() => {
                     setClose(false);
+
+                    // 서버로 데이터 전송하는 post요청
+                    axios.post("/serverurl", { name: "kim" });
+
+                    // 동시에 ajax요청 여러개하려면
+                    Promise.all([axios.get("url1"), axios.get("/url2")])
+                      // 2개가 실행된 후 ~~ 실행해주세요
+                      .then(() => {});
                   }}
                 >
                   닫기
